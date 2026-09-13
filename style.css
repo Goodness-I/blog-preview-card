@@ -1,0 +1,247 @@
+:root {
+  --clr-primary-400: hsl(47, 88%, 63%);
+  --clr-neutral-950: hsl(0, 0%, 7%);
+  --clr-neutral-400: hsl(228, 12%, 48%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-regular: "Figtree", sans-serif;
+  --fw-regular: 500;
+  --fw-bold: 800;
+  --content-padding: 0.1rem;
+  --content-spacing: 0.9rem;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html,
+  body {
+    interpolate-size: allow-keywords;
+  }
+}
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+  font-size: 16px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* general styling */
+body {
+  font-family: var(--ff-regular);
+  font-weight: var(--fw-regular);
+  font-size: 0.87rem;
+  color: var(--clr-neutral-400);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 1rem;
+  background-color: var(--clr-primary-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+/* utilities */
+.flex-group {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+/* blog styles */
+
+.blog {
+  width: min(100%, 384px);
+  min-width: 0;
+  margin-inline: auto;
+  background-color: var(--clr-neutral-100);
+  padding: 1.5rem;
+  border: 1px solid var(--clr-neutral-950);
+  border-radius: 1.3rem;
+  box-shadow: 10px 10px 1px rgba(0, 0, 0, 0.9);
+}
+
+.blog__title:is(:hover, :focus) {
+  color: var(--clr-primary-400);
+}
+
+.blog__content {
+  display: grid;
+  gap: 0.75em;
+  padding: var(--content-padding);
+  background-color: var(--clr-neutral-100);
+  margin: auto;
+}
+
+.blog__content > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.blog__img {
+  width: 100%;
+  border-radius: 0.8rem;
+}
+
+.blog__category {
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-950);
+  width: fit-content;
+  max-width: 100%;
+  font-weight: var(--fw-bold);
+  border-radius: 0.3rem;
+  padding: var(--content-spacing);
+  font-size: 16px;
+  margin: 0.3em 0;
+}
+
+.date {
+  color: var(--clr-neutral-950);
+  font-weight: 600;
+}
+
+.blog__title {
+  color: var(--clr-neutral-950);
+  font-weight: var(--fw-bold);
+  padding: var(--content-padding);
+}
+
+.avatar {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  width: 2rem;
+}
+
+.avatar-name {
+  color: var(--clr-neutral-950);
+  font-weight: var(--fw-bold);
+  font-size: 1rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 199px) {
+  .blog {
+    padding: 0.5rem;
+  }
+
+  .blog__content {
+    gap: 0.5rem;
+  }
+
+  .blog__category {
+    width: 100%;
+    min-width: 0;
+    padding: 0.35rem;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+
+  .blog__content p,
+  .avatar-name {
+    font-size: 0.75rem;
+  }
+
+  .avatar img {
+    width: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .blog {
+    width: min(100%, 360px);
+    padding: 1.25rem;
+    border-radius: 1rem;
+    box-shadow: 6px 6px 1px rgba(0, 0, 0, 0.9);
+  }
+
+  .blog__content {
+    gap: 0.6rem;
+  }
+
+  .blog__category {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .blog__content p,
+  .avatar-name {
+    font-size: 0.9rem;
+  }
+
+  .avatar img {
+    width: 1.75rem;
+  }
+}
